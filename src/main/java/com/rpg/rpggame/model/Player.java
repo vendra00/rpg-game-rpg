@@ -1,30 +1,34 @@
 package com.rpg.rpggame.model;
 
 import com.rpg.rpggame.enums.PlayerClass;
-import lombok.Data;
-import lombok.EqualsAndHashCode;
+import lombok.Getter;
+import lombok.RequiredArgsConstructor;
+import lombok.Setter;
+import lombok.ToString;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
 
-@EqualsAndHashCode(callSuper = true)
 @Entity
-@Data
+@Getter
+@Setter
+@ToString
+@RequiredArgsConstructor
 public class Player extends AbstractEntity{
 
-    @Column(unique = true)
+    @Column(unique = true, nullable = false)
     private String name;
 
-    @Column(name = "int")
+    @Column()
     private int intelligence;
 
-    @Column(name = "dex")
+    @Column()
     private int dexterity;
 
-    @Column(name = "str")
+    @Column()
     private int strength;
 
-    @Column(name = "class")
+    @Column(nullable = false)
     private PlayerClass playerClass;
 
 }
